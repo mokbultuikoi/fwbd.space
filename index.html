@@ -3,207 +3,344 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book Landing Page</title>
+<title>The 1% Growth Formula</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,Arial,sans-serif;
 }
 
 body{
-    background:#f7f8fc;
-    color:#222;
-}
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:50px 20px;
+background:#f8f9fc;
+color:#222;
+line-height:1.6;
 }
 
 .container{
-    max-width:1200px;
-    width:100%;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+.hero{
+padding:80px 0;
+background:white;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:400px 1fr;
+gap:60px;
+align-items:center;
 }
 
 .book-cover{
-    display:flex;
-    justify-content:center;
+width:100%;
+height:550px;
+background:linear-gradient(135deg,#4f46e5,#7c3aed);
+border-radius:20px;
+padding:40px;
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+box-shadow:0 20px 50px rgba(0,0,0,.15);
 }
 
-.cover{
-    width:320px;
-    height:450px;
-    border-radius:20px;
-    background:linear-gradient(135deg,#4f46e5,#7c3aed);
-    color:white;
-    padding:30px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    box-shadow:0 20px 40px rgba(0,0,0,.2);
+.book-cover h1{
+font-size:48px;
 }
 
-.cover h2{
-    font-size:36px;
+.hero-content h2{
+font-size:52px;
+margin-bottom:20px;
 }
 
-.cover p{
-    opacity:.9;
+.hero-content p{
+font-size:20px;
+color:#666;
+margin-bottom:20px;
 }
 
-.content h1{
-    font-size:52px;
-    margin-bottom:15px;
+.email-box{
+display:flex;
+gap:10px;
+margin-top:20px;
 }
 
-.subtitle{
-    font-size:20px;
-    color:#666;
-    margin-bottom:25px;
+.email-box input{
+flex:1;
+padding:15px;
+border:1px solid #ddd;
+border-radius:10px;
 }
 
-.price{
-    font-size:40px;
-    font-weight:bold;
-    color:#4f46e5;
-    margin-bottom:25px;
+.email-box button{
+padding:15px 25px;
+background:#4f46e5;
+border:none;
+color:white;
+border-radius:10px;
+cursor:pointer;
 }
 
-.features{
-    list-style:none;
-    margin-bottom:30px;
+section{
+padding:80px 0;
 }
 
-.features li{
-    margin-bottom:12px;
-    font-size:18px;
+.section-title{
+text-align:center;
+font-size:40px;
+margin-bottom:50px;
 }
 
-.btn{
-    display:inline-block;
-    background:#4f46e5;
-    color:white;
-    text-decoration:none;
-    padding:16px 35px;
-    border-radius:10px;
-    font-weight:bold;
-    transition:.3s;
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
-.btn:hover{
-    background:#4338ca;
+.card{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
 }
 
-.section{
-    max-width:1100px;
-    margin:auto;
-    padding:80px 20px;
+.author{
+background:white;
 }
 
-.section h2{
-    text-align:center;
-    margin-bottom:20px;
-    font-size:38px;
+.author-box{
+max-width:900px;
+margin:auto;
+text-align:center;
 }
 
-.description{
-    max-width:800px;
-    margin:auto;
-    text-align:center;
-    line-height:1.8;
-    color:#555;
+.author-img{
+width:120px;
+height:120px;
+background:#ddd;
+border-radius:50%;
+margin:auto;
+margin-bottom:20px;
+}
+
+.testimonials{
+background:#eef1ff;
+}
+
+.footer{
+background:#111;
+color:white;
+padding:40px 0;
+text-align:center;
+}
+
+.footer a{
+color:#aaa;
+margin:0 10px;
+text-decoration:none;
 }
 
 @media(max-width:900px){
-    .container{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
 
-    .content h1{
-        font-size:40px;
-    }
+.hero-grid{
+grid-template-columns:1fr;
+}
 
-    .cover{
-        width:280px;
-        height:400px;
-    }
+.hero-content h2{
+font-size:36px;
+}
+
+.book-cover{
+height:450px;
+}
 }
 </style>
 </head>
 <body>
 
 <script>
-// Book data stored in JSON
-const bookData = {
-    title: "The 1% Growth Formula",
-    author: "Daniel Hart",
-    price: "$19.99",
-    subtitle: "Small Daily Habits That Create Extraordinary Success",
-    description:
-        "Discover the proven framework used by top performers to improve every day, build unstoppable momentum, and achieve long-term success. Learn practical systems for productivity, discipline, and personal growth.",
-    features: [
-        "✓ Practical step-by-step framework",
-        "✓ Productivity & focus strategies",
-        "✓ Habit building techniques",
-        "✓ Real-world case studies",
-        "✓ Bonus action worksheets"
-    ],
-    buyLink: "#"
+
+const book = {
+title: "The 1% Growth Formula",
+subtitle: "Small Daily Habits That Create Extraordinary Success",
+author: "Daniel Hart",
+description:
+"Learn how tiny improvements made consistently can transform your productivity, health, finances and career.",
+lessons: [
+"Build habits that actually stick",
+"Improve focus and eliminate distractions",
+"Create systems instead of relying on motivation",
+"Increase productivity without burnout",
+"Develop long-term discipline"
+],
+testimonials:[
+{
+name:"Sarah M.",
+text:"One of the most practical self-improvement books I've read."
+},
+{
+name:"Michael R.",
+text:"Helped me completely redesign my daily routine."
+},
+{
+name:"James T.",
+text:"Simple ideas that create powerful results."
+}
+]
 };
 
 document.body.innerHTML = `
+
 <section class="hero">
-    <div class="container">
+<div class="container">
 
-        <div class="book-cover">
-            <div class="cover">
-                <div>
-                    <p>BESTSELLER</p>
-                    <h2>${bookData.title}</h2>
-                </div>
+<div class="hero-grid">
 
-                <div>
-                    <p>by ${bookData.author}</p>
-                </div>
-            </div>
-        </div>
+<div class="book-cover">
+<div>
+<p>BESTSELLER</p>
+<h1>${book.title}</h1>
+</div>
 
-        <div class="content">
-            <h1>${bookData.title}</h1>
-            <p class="subtitle">${bookData.subtitle}</p>
+<div>
+<p>${book.author}</p>
+</div>
+</div>
 
-            <div class="price">${bookData.price}</div>
+<div class="hero-content">
+<h2>${book.title}</h2>
 
-            <ul class="features">
-                ${bookData.features.map(item => `<li>${item}</li>`).join("")}
-            </ul>
+<p>${book.subtitle}</p>
 
-            <a href="${bookData.buyLink}" class="btn">
-                Buy Now
-            </a>
-        </div>
+<p>
+${book.description}
+</p>
 
-    </div>
+<div class="email-box">
+<input type="email" placeholder="Enter your email">
+<button>Get Free Chapter</button>
+</div>
+
+</div>
+
+</div>
+
+</div>
 </section>
 
-<section class="section">
-    <h2>About The Book</h2>
-    <p class="description">
-        ${bookData.description}
-    </p>
+<section>
+<div class="container">
+
+<h2 class="section-title">
+What You'll Learn
+</h2>
+
+<div class="cards">
+${book.lessons.map(item=>`
+<div class="card">
+<h3>${item}</h3>
+<p>
+Practical techniques and actionable insights.
+</p>
+</div>
+`).join("")}
+</div>
+
+</div>
 </section>
+
+<section class="author">
+<div class="container">
+
+<div class="author-box">
+<div class="author-img"></div>
+
+<h2>About The Author</h2>
+
+<p>
+Daniel Hart is a productivity researcher and business strategist
+who has spent more than a decade studying peak performance,
+habit formation and personal development.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<section class="testimonials">
+<div class="container">
+
+<h2 class="section-title">
+Reader Reviews
+</h2>
+
+<div class="cards">
+
+${book.testimonials.map(t=>`
+<div class="card">
+<p>"${t.text}"</p>
+<br>
+<strong>${t.name}</strong>
+</div>
+`).join("")}
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="card">
+<h3>Is this book for beginners?</h3>
+<p>Yes. The concepts are easy to understand and apply.</p>
+</div>
+
+<br>
+
+<div class="card">
+<h3>What format is available?</h3>
+<p>Paperback, hardcover and digital editions.</p>
+</div>
+
+<br>
+
+<div class="card">
+<h3>How long is the book?</h3>
+<p>Approximately 250 pages.</p>
+</div>
+
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+
+<p>© 2026 The 1% Growth Formula</p>
+
+<br>
+
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="#">Contact</a>
+
+</div>
+</footer>
+
 `;
+
 </script>
 
 </body>
