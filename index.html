@@ -1,347 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The 1% Growth Formula</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter,Arial,sans-serif;
-}
-
-body{
-background:#f8f9fc;
-color:#222;
-line-height:1.6;
-}
-
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
-}
-
-.hero{
-padding:80px 0;
-background:white;
-}
-
-.hero-grid{
-display:grid;
-grid-template-columns:400px 1fr;
-gap:60px;
-align-items:center;
-}
-
-.book-cover{
-width:100%;
-height:550px;
-background:linear-gradient(135deg,#4f46e5,#7c3aed);
-border-radius:20px;
-padding:40px;
-color:white;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-box-shadow:0 20px 50px rgba(0,0,0,.15);
-}
-
-.book-cover h1{
-font-size:48px;
-}
-
-.hero-content h2{
-font-size:52px;
-margin-bottom:20px;
-}
-
-.hero-content p{
-font-size:20px;
-color:#666;
-margin-bottom:20px;
-}
-
-.email-box{
-display:flex;
-gap:10px;
-margin-top:20px;
-}
-
-.email-box input{
-flex:1;
-padding:15px;
-border:1px solid #ddd;
-border-radius:10px;
-}
-
-.email-box button{
-padding:15px 25px;
-background:#4f46e5;
-border:none;
-color:white;
-border-radius:10px;
-cursor:pointer;
-}
-
-section{
-padding:80px 0;
-}
-
-.section-title{
-text-align:center;
-font-size:40px;
-margin-bottom:50px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,.05);
-}
-
-.author{
-background:white;
-}
-
-.author-box{
-max-width:900px;
-margin:auto;
-text-align:center;
-}
-
-.author-img{
-width:120px;
-height:120px;
-background:#ddd;
-border-radius:50%;
-margin:auto;
-margin-bottom:20px;
-}
-
-.testimonials{
-background:#eef1ff;
-}
-
-.footer{
-background:#111;
-color:white;
-padding:40px 0;
-text-align:center;
-}
-
-.footer a{
-color:#aaa;
-margin:0 10px;
-text-decoration:none;
-}
-
-@media(max-width:900px){
-
-.hero-grid{
-grid-template-columns:1fr;
-}
-
-.hero-content h2{
-font-size:36px;
-}
-
-.book-cover{
-height:450px;
-}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First Verified</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; margin: 0; }
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: #e7edf7;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(ellipse at 50% 55%, rgba(35, 62, 86, .42), transparent 52%),
+        linear-gradient(145deg, #0b0d17 0%, #111b2a 52%, #1a2938 100%);
+    }
+    .verification-card {
+      width: min(100%, 590px);
+      padding: clamp(32px, 7vw, 68px) clamp(22px, 6vw, 58px) 60px;
+      text-align: center;
+      border: 1px solid rgba(0, 210, 238, .22);
+      border-radius: 38px;
+      background: rgba(34, 42, 56, .78);
+      box-shadow: 0 0 34px rgba(0, 204, 235, .07), inset 0 0 28px rgba(255,255,255,.015);
+    }
+    h1 {
+      margin: 0 0 32px;
+      color: #08d7f4;
+      font-size: clamp(32px, 7vw, 56px);
+      line-height: 1.12;
+      font-weight: 750;
+      letter-spacing: -.8px;
+      text-shadow: 0 0 18px rgba(0, 210, 245, .18);
+      white-space: nowrap;
+    }
+    .check { margin-left: 4px; }
+    p {
+      margin: 0 auto 54px;
+      max-width: 470px;
+      color: #d7dce6;
+      font-size: clamp(17px, 3.6vw, 25px);
+      line-height: 1.58;
+    }
+    .signup-button {
+      display: block;
+      width: 100%;
+      min-height: 92px;
+      border: 0;
+      border-radius: 20px;
+      color: white;
+      background: linear-gradient(110deg, #08c8e9 0%, #3987df 100%);
+      box-shadow: 0 12px 34px rgba(0, 196, 235, .22);
+      font-size: clamp(20px, 4.5vw, 30px);
+      font-weight: 750;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .signup-button:hover { filter: brightness(1.08); transform: translateY(-2px); }
+    .signup-button:active { transform: translateY(0); }
+    .policy {
+      display: inline-block;
+      margin-top: 50px;
+      color: #8d98aa;
+      font-size: 19px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    @media (max-width: 400px) {
+      .verification-card { border-radius: 28px; padding-bottom: 42px; }
+      h1 { white-space: normal; }
+      .signup-button { min-height: 74px; border-radius: 16px; }
+      p { margin-bottom: 36px; }
+      .policy { margin-top: 36px; }
+    }
+  </style>
 </head>
 <body>
-
-<script>
-
-const book = {
-title: "The 1% Growth Formula",
-subtitle: "Small Daily Habits That Create Extraordinary Success",
-author: "Daniel Hart",
-description:
-"Learn how tiny improvements made consistently can transform your productivity, health, finances and career.",
-lessons: [
-"Build habits that actually stick",
-"Improve focus and eliminate distractions",
-"Create systems instead of relying on motivation",
-"Increase productivity without burnout",
-"Develop long-term discipline"
-],
-testimonials:[
-{
-name:"Sarah M.",
-text:"One of the most practical self-improvement books I've read."
-},
-{
-name:"Michael R.",
-text:"Helped me completely redesign my daily routine."
-},
-{
-name:"James T.",
-text:"Simple ideas that create powerful results."
-}
-]
-};
-
-document.body.innerHTML = `
-
-<section class="hero">
-<div class="container">
-
-<div class="hero-grid">
-
-<div class="book-cover">
-<div>
-<p>BESTSELLER</p>
-<h1>${book.title}</h1>
-</div>
-
-<div>
-<p>${book.author}</p>
-</div>
-</div>
-
-<div class="hero-content">
-<h2>${book.title}</h2>
-
-<p>${book.subtitle}</p>
-
-<p>
-${book.description}
-</p>
-
-<div class="email-box">
-<input type="email" placeholder="Enter your email">
-<button>Get Free Chapter</button>
-</div>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-<section>
-<div class="container">
-
-<h2 class="section-title">
-What You'll Learn
-</h2>
-
-<div class="cards">
-${book.lessons.map(item=>`
-<div class="card">
-<h3>${item}</h3>
-<p>
-Practical techniques and actionable insights.
-</p>
-</div>
-`).join("")}
-</div>
-
-</div>
-</section>
-
-<section class="author">
-<div class="container">
-
-<div class="author-box">
-<div class="author-img"></div>
-
-<h2>About The Author</h2>
-
-<p>
-Daniel Hart is a productivity researcher and business strategist
-who has spent more than a decade studying peak performance,
-habit formation and personal development.
-</p>
-
-</div>
-
-</div>
-</section>
-
-<section class="testimonials">
-<div class="container">
-
-<h2 class="section-title">
-Reader Reviews
-</h2>
-
-<div class="cards">
-
-${book.testimonials.map(t=>`
-<div class="card">
-<p>"${t.text}"</p>
-<br>
-<strong>${t.name}</strong>
-</div>
-`).join("")}
-
-</div>
-
-</div>
-</section>
-
-<section>
-<div class="container">
-
-<h2 class="section-title">
-Frequently Asked Questions
-</h2>
-
-<div class="card">
-<h3>Is this book for beginners?</h3>
-<p>Yes. The concepts are easy to understand and apply.</p>
-</div>
-
-<br>
-
-<div class="card">
-<h3>What format is available?</h3>
-<p>Paperback, hardcover and digital editions.</p>
-</div>
-
-<br>
-
-<div class="card">
-<h3>How long is the book?</h3>
-<p>Approximately 250 pages.</p>
-</div>
-
-</div>
-</section>
-
-<footer class="footer">
-<div class="container">
-
-<p>© 2026 The 1% Growth Formula</p>
-
-<br>
-
-<a href="#">Privacy Policy</a>
-<a href="#">Terms of Service</a>
-<a href="#">Contact</a>
-
-</div>
-</footer>
-
-`;
-
-</script>
-
+  <main class="verification-card">
+    <h1>First Verified <span class="check">✅</span></h1>
+    <p>
+      Your identity has been securely verified.<br />
+      Click the button below to proceed to the registration page.
+    </p>
+    <button class="signup-button" type="button"
+      onclick="window.location.href='https://fastwinbd.com'">
+      SIGN UP NOW
+    </button>
+    <a class="policy" href="https://fastwinbd.com">Privacy &amp; Terms Policy</a>
+  </main>
 </body>
 </html>
